@@ -1,9 +1,41 @@
-import React from 'react'
+import React from "react";
+import './index.css';
 
-const App = () => {
+import ListWithSearch from "./components/ListWithSearch";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import SingleProductPage from "./pages/SingleProductPage";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
+
+
+
+/* const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home/>,
+    errorElement: <NotFound/>,
+    children: [
+      {
+        path:"products/:id",
+        element: <SingleProductPage/>
+      }
+    ]
+  }
+]) */
+
+function App() {
+ 
   return (
-    <div>App</div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ListWithSearch />} >
+        </Route>
+        <Route path="/products/:id" element={<SingleProductPage />} />
+      </Routes>
+    </BrowserRouter>
+
+  );
 }
 
-export default App
+export default App;
