@@ -8,29 +8,13 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
-
-
-/* const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home/>,
-    errorElement: <NotFound/>,
-    children: [
-      {
-        path:"products/:id",
-        element: <SingleProductPage/>
-      }
-    ]
-  }
-]) */
-
 function App() {
  
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<ListWithSearch />} >
-        </Route>
+         <Route path="/" element={<ListWithSearch />} >
+        </Route> 
         <Route path="/products/:id" element={<SingleProductPage />} />
       </Routes>
     </BrowserRouter>
