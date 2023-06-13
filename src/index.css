@@ -33,4 +33,10 @@ code {
   display: block;
   padding: 0.5rem 1rem;
 }
-
+.super-app-theme--header {
+  background-color: #71124d;
+  color: #fbfbfb;
+}
+.contactForm{
+  margin: 100 10 10 10;
+}

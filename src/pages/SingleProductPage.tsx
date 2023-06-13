@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect,useState } from 'react'
 import { useParams } from 'react-router'
-import Home from './Home'
 import { Products } from '../types/Products'
-import { Avatar, Box, List, ListItem, ListItemText } from '@mui/material';
+import { Box, List, ListItem, ListItemText } from '@mui/material';
+import Navbar from '../components/Navbar';
 
 const SingleProductPage = () => {
     const {id} = useParams()
@@ -15,7 +15,7 @@ const SingleProductPage = () => {
             ).then(
                 data => setProduct(data)
             )
-    },[])
+    },[id])
     const renderMap = () => {
         if (product && product.latitude && product.longitude) {
           return (
@@ -24,10 +24,6 @@ const SingleProductPage = () => {
                 title="brewery-map"
                 width="100%"
                 height="100%"
-                frameBorder="0"
-                scrolling="no"
-                marginHeight={0}
-                marginWidth={0}
                 src={`https://maps.google.com/maps?q=${product.latitude},${product.longitude}&z=15&output=embed`}
               ></iframe>
             </div>
@@ -38,6 +34,7 @@ const SingleProductPage = () => {
       };
   return(
     <div>
+      <div> <Navbar/></div>
         {product && (
             <Box sx={{width: "100%"}}>
                 <List>

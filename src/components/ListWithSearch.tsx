@@ -21,7 +21,7 @@ const useDebounce = <T,>(
         return()=>{
             clearTimeout(timer)
         }
-    },[filter, items])
+    },[filter, items,filterFunc])
     const onChangeFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFilter(e.target.value)
     }
@@ -46,7 +46,7 @@ const ListWithSearch = () => {
                     setProducts(result)
                 }
             )
-    },[])
+    },[filteredProducts])
     const navigate = useNavigate()
     const updatedData = useMemo(() => {
         function getRandomColor() {
